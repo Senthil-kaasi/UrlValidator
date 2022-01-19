@@ -1,25 +1,22 @@
 import React from "react";
 import {Button,Container,Form} from "react-bootstrap";
+import MyFormGroup from "./MyFormGroup";
 
 
 function MyForm(props){
     return(
         <Container style={{"width":"400px"}}>
             <Form>
-                <Form.Group className="mb-3">
-                    <Form.Label>Domain</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter the Domain Url"    
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Path</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter the Path variable seperated by space"    
-                    />
-                </Form.Group>      
+                <MyFormGroup 
+                    label="Domain"
+                    type="text"
+                    placeholder="Enter the Domain name"
+                />
+                <MyFormGroup 
+                    label="Path"
+                    type="text"
+                    placeholder="Enter the Path variables separated by space"
+                />     
                 <Form.Group className="mb-3">
                     <Form.Label>Method</Form.Label>
                     <Form.Select>
@@ -37,7 +34,7 @@ function MyForm(props){
                         style={{"height":"100px"}}
                     />    
                 </Form.Group>  
-                <Button varient="primary" className="mb-3">Validate</Button>            
+                <Button varient="success" className="mb-3">Validate</Button>            
             </Form>
         </Container>
     )
