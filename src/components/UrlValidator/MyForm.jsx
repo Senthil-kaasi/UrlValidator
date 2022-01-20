@@ -28,14 +28,12 @@ function MyForm(props){
                         <option>DELETE</option>
                     </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Body</Form.Label>
-                    <Form.Control 
-                        as="textarea"
-                        placeholder="Enter the body"
-                        style={{"height":"100px"}}
-                    />    
-                </Form.Group>  
+                <MyFormGroup 
+                    flag={true}
+                    label="Body"
+                    placeholder="Enter body as object"
+                    type="textarea"
+                />
                 <Button varient="success" className="mb-3">Validate</Button>            
             </Form>
         </Container>

@@ -13,7 +13,7 @@ function UrlValidator(){
             <h1 className="m-2">Url Validator</h1>
                 <div 
                     id="message" 
-                    className="m-2 border rounded bg-primary"
+                    className="m-2 border rounded"
                     style={{"height":"50px"}}
                 ></div>
                 <MyForm />
