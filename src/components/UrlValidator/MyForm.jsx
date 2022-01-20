@@ -11,11 +11,13 @@ function MyForm(props){
                     label="Domain"
                     type="text"
                     placeholder="Enter the Domain name"
+                    flag={false}
                 />
                 <MyFormGroup 
                     label="Path"
                     type="text"
                     placeholder="Enter the Path variables separated by space"
+                    flag={false}
                 />     
                 <Form.Group className="mb-3">
                     <Form.Label>Method</Form.Label>
