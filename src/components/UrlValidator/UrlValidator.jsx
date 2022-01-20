@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import MyForm from "./MyForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components.css"
 
 function UrlValidator(){
+    const [url,setUrl] = useState("");
     return (
         <div 
             id="urlvalidator" 
@@ -15,8 +16,10 @@ function UrlValidator(){
                     id="message" 
                     className="m-2 border rounded"
                     style={{"height":"50px"}}
-                ></div>
-                <MyForm />
+                >{url}</div>
+                <MyForm 
+                    setUrl={setUrl}    
+                />
         </div>
        
     )
