@@ -3,7 +3,7 @@ import {Form} from "react-bootstrap";
 
 function MyFormGroup(props){
     
-    const {label,type,placeholder,flag,setUserInput} = props;
+    const {label,type,placeholder,flag,setUserInput,isDisabled} = props;
     
     const handleChanges = function(event){
         const {value,name} = event.target;
@@ -19,7 +19,7 @@ function MyFormGroup(props){
         <Form.Group className="mb-3">
             <Form.Label>{label}</Form.Label>{
                 flag ? <Form.Control 
-                            disabled={false}
+                            disabled={isDisabled}
                             as={type}
                             name={label.toLowerCase()}
                             placeholder={placeholder}

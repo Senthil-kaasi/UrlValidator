@@ -8,29 +8,33 @@ function MyForm(props){
  
     const {setUrl} = props;
 
+    const [isDisabled,setIsDisabled] = useState(false);
     const [userInput,setUserInput]=useState({domain:"",path:"",body:""});
     const [option,setOption] = useState("GET");
 
+
     const validate = function(){
         const {domain,path,body} = userInput;
-        if(body === ""){
-            
+        try{
+            let bodyObj;
+            if(body !== ""){
+                bodyObj = JSON.parse(body);
+                console.log(bodyObj);
+            }
+        }catch(e){
+            setUrl("Error in the body");
         }
-        // const pathArr = path.split(" ");
-        // if(domain !== ""){
-        //     url+=domain;
-        // }
-        // if(pathArr.length-1 !== 0){
-        //     pathArr.map((item)=>{
-        //         url+=`/${item}`
-        //     })
-        // }
-        console.log(userInput);
+        
     }
 
     const handleChange = function(e){
         const {value} = e.target;
         setOption(value);
+        if(value === "DELETE"){
+            setIsDisabled(true);
+        }else{
+            setIsDisabled(false);
+        }
     }
 
     return(
@@ -62,6 +66,7 @@ function MyForm(props){
                     </Form.Select>
                 </Form.Group>
                 <MyFormGroup 
+                    isDisabled = {isDisabled}
                     flag={true}
                     label="Body"
                     placeholder="Enter body as object"
