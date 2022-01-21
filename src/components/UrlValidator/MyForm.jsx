@@ -4,7 +4,6 @@ import MyFormGroup from "./MyFormGroup";
 
 
 function MyForm(props){
-    let url="https://";
  
     const {setUrl} = props;
 
@@ -19,7 +18,6 @@ function MyForm(props){
             let bodyObj;
             if(body !== ""){
                 bodyObj = JSON.parse(body);
-                console.log(bodyObj);
             }
         }catch(e){
             setUrl("Error in the body");
