@@ -1,11 +1,12 @@
 import React,{useState} from "react";
 import {Button,Container,Form} from "react-bootstrap";
 import MyFormGroup from "./MyFormGroup";
+import {makeHttpRequestUrl} from "./makeHttpRequestUrl.js";
 
 
 function MyForm(props){
  
-    const {setUrl} = props;
+    const {setUrl,setIsClicked,setColor} = props;
 
     const [isDisabled,setIsDisabled] = useState(false);
     const [userInput,setUserInput]=useState({domain:"",path:"",body:""});
@@ -13,16 +14,15 @@ function MyForm(props){
 
 
     const validate = function(){
+        setIsClicked(true);
         const {domain,path,body} = userInput;
-        try{
-            let bodyObj;
-            if(body !== ""){
-                bodyObj = JSON.parse(body);
-            }
-        }catch(e){
-            setUrl("Error in the body");
+        let url = makeHttpRequestUrl(domain,path,option,body);
+        setUrl(url);
+        if(url.includes("Error")|| url.includes("Invalid")){
+            setColor("red");
+        }else{
+            setColor("green");
         }
-        
     }
 
     const handleChange = function(e){
@@ -72,7 +72,7 @@ function MyForm(props){
                     setUserInput={setUserInput}
                 />
                 <Button 
-                    varient="success" 
+                    varient="secondary" 
                     className="mb-3"
                     onClick={validate}
                     >Validate</Button>            
